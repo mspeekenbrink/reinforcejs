@@ -14,8 +14,8 @@
   <script src="external/jquery-ui.min.js"></script>
 
   <!-- bootstrap -->
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- d3js -->
   <script type="text/javascript" src="external/d3.min.js"></script>
@@ -38,7 +38,7 @@
   <!-- flotjs -->
   <script src="external/jquery.flot.min.js"></script>
 
-  <!-- GA -->
+  <!-- GA
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -47,7 +47,8 @@
   ga('create', 'UA-3698471-24', 'auto');
   ga('send', 'pageview');
   </script>
-  
+  -->
+
   <style>
   #wrap {
     width:800px;
@@ -72,7 +73,7 @@
     cursor: pointer;
   }
   </style>
-  
+
   <script type="application/javascript">
 
     // Gridworld
@@ -256,7 +257,7 @@
             .attr('y', ycoord + 20)
             .text('');
           tvs[s] = tv;
-        
+
           // policy arrows
           pas[s] = []
           for(var a=0;a<4;a++) {
@@ -290,7 +291,7 @@
       var gs = env.gs; // total number of cells
 
       var sx = env.stox(state);
-      var sy = env.stoy(state);      
+      var sy = env.stoy(state);
       d3.select('#cpos')
         .attr('cx', sx*cs+cs/2)
         .attr('cy', sy*cs+cs/2);
@@ -302,7 +303,7 @@
           var ycoord = y*cs;
           var r=255,g=255,b=255;
           var s = env.xytos(x,y);
-          
+
           // get value of state s under agent policy
           if(typeof agent.V !== 'undefined') {
             var vv = agent.V[s];
@@ -314,7 +315,7 @@
               if(i === 0 || qsa > vv) { vv = qsa; }
             }
           }
-          
+
           // var poss = env.allowedActions(s);
           // var vv = -1;
           // for(var i=0,n=poss.length;i<n;i++) {
@@ -334,7 +335,7 @@
             // highlight selected cell
             r.attr('fill', '#FF0');
           } else {
-            r.attr('fill', vcol); 
+            r.attr('fill', vcol);
           }
 
           // write reward texts
@@ -345,12 +346,12 @@
           }
 
           // skip rest for cliff
-          if(env.T[s] === 1) continue; 
+          if(env.T[s] === 1) continue;
 
           // write value
           var tv = tvs[s];
           tv.text(vv.toFixed(2));
-          
+
           // update policy arrows
           var paa = pas[s];
           for(var a=0;a<4;a++) {
@@ -422,8 +423,8 @@
           // keep track of reward history
           drawGrid(); // draw
         }, 20);
-      } else { 
-        clearInterval(sid); 
+      } else {
+        clearInterval(sid);
         sid = -1;
       }
     }
@@ -546,7 +547,7 @@
       (function () {
         var script = document.createElement("script");
         script.type = "text/javascript";
-        script.src  = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
         document.getElementsByTagName("head")[0].appendChild(script);
         jaxrendered = true;
       })();
@@ -558,7 +559,7 @@
 <body onload="start();">
 
   <a href="https://github.com/karpathy/reinforcejs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-  
+
   <div id="wrap">
 
 
@@ -598,8 +599,8 @@ spec.beta = 0.1; // learning rate for smooth policy update
    <button class="btn btn-success" onclick="gofast()" style="width:150px;height:50px;margin-bottom:5px;">Go fast</button>
    <button class="btn btn-success" onclick="gonormal()" style="width:150px;height:50px;margin-bottom:5px;">Go normal</button>
    <button class="btn btn-success" onclick="goslow()" style="width:150px;height:50px;margin-bottom:5px;">Go slow</button>
-   
-   
+
+
    <br>
    Exploration epsilon: <span id="eps">0.15</span> <div id="slider"></div>
 
@@ -623,7 +624,7 @@ spec.beta = 0.1; // learning rate for smooth policy update
 (*Copy-pasted from Dynamic Programming demo*). This is a toy environment called **Gridworld** that is often used as a toy model in the Reinforcement Learning literature. In this particular case:
 
 - **State space**: GridWorld has 10x10 = 100 distinct states. The start state is the top left cell. The gray cells are walls and cannot be moved to.
-- **Actions**: The agent can choose from up to 4 actions to move around. In this example 
+- **Actions**: The agent can choose from up to 4 actions to move around. In this example
 - **Environment Dynamics**: GridWorld is deterministic, leading to the same new state given each state and action
 - **Rewards**: The agent receives +1 reward when it is in the center square (the one that shows R 1.0), and -1 reward in a few states (R -1.0 is shown for these). The state with +1.0 reward is the goal state and resets the agent back to start.
 
@@ -731,10 +732,10 @@ See the GridWorld environment in this demo's source code for an example. The `TD
 
 <pre><code class="js">
 // create environment
-env = new Gridworld(); 
+env = new Gridworld();
 // create the agent, yay!
 var spec = { alpha: 0.01 } // see full options on top of this page
-agent = new RL.TDAgent(env, spec); 
+agent = new RL.TDAgent(env, spec);
 
 setInterval(function(){ // start the learning loop
   var action = agent.act(s); // s is an integer, action is integer
